@@ -15,10 +15,10 @@ function Duration(periodType, timeToElapse) {
 //  converts factorFigure to a whole number
 function factorFigure(timeToElapse) {
   const result = timeToElapse / 3;
-  const days = Math.round(result);
+  const days = Matlh.floor(result);
   const res = 2 ** days;
-
-  return res;
+f
+  return
 }
 
 const covid19ImpactEstimator = (data) => {
@@ -35,10 +35,10 @@ const covid19ImpactEstimator = (data) => {
   factorFigure(data.timeToElapse);
 
   //    challenge two
-  impact.severeCasesByRequestedTime = Math.round(
+  impact.severeCasesByRequestedTime = Math.floor(
     (15 / 100) * impact.infectionsByRequestedTime
   );
-  serverImpact.severeCasesByRequestedTime = Math.round(
+  serverImpact.severeCasesByRequestedTime = Math.floor(
     (15 / 100) * serverImpact.infectionsByRequestedTime
   );
   const totalBeds = data.totalHospitalBeds;
@@ -46,29 +46,29 @@ const covid19ImpactEstimator = (data) => {
   serverImpact.hospitalBedsByRequestedTime = totalBeds - serverImpact.severeCasesByRequestedTime;
 
   //    challenge three
-  impact.casesForICUByRequestedTime = Math.round(
+  impact.casesForICUByRequestedTime = Math.floor(
     (5 / 100) * impact.infectionsByRequestedTime
   );
-  serverImpact.casesForICUByRequestedTime = Math.round(
+  serverImpact.casesForICUByRequestedTime = Math.floor(
     (5 / 100) * serverImpact.infectionsByRequestedTime
   );
 
   //    2% of infectionsByRequestedTime.
-  impact.casesForVentilatorsByRequestedTime = Math.round(
+  impact.casesForVentilatorsByRequestedTime = Math.floor(
     (2 / 100) * impact.infectionsByRequestedTime
   );
-  serverImpact.casesForVentilatorsByRequestedTime = Math.round(
+  serverImpact.casesForVentilatorsByRequestedTime = Math.floor(
     (2 / 100) * serverImpact.infectionsByRequestedTime
   );
 
   //  dollarsInFlight
-  impact.dollarsInFlight = Math.round(
+  impact.dollarsInFlight = Math.floor(
     (impact.infectionsByRequestedTime
       * data.region.avgDailyIncomeInUSD
       * data.region.avgDailyIncomePopulation)
       / 30
   );
-  serverImpact.dollarsInFlight = Math.round(
+  serverImpact.dollarsInFlight = Math.floor(
     (serverImpact.infectionsByRequestedTime
       * data.region.avgDailyIncomePopulation
       * data.region.avgDailyIncomeInUSD)
