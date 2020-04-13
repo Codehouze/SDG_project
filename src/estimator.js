@@ -15,10 +15,10 @@ function Duration(periodType, timeToElapse) {
 //  converts factorFigure to a whole number
 function factorFigure(timeToElapse) {
   const result = timeToElapse / 3;
-  const days = Matlh.floor(result);
+  const days = Math.floor(result);
   const res = 2 ** days;
-f
-  return
+
+  return res;
 }
 
 const covid19ImpactEstimator = (data) => {
